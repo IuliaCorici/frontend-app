@@ -1,0 +1,68 @@
+
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    padding-left: 100px;
+    display: inline-block;
+    font-family:  Georgia;
+    text-decoration-color: aliceblue;
+    width: 150px;
+    padding: 10px;
+    border: 1px dashed rgb(67, 62, 124);
+    text-align: center;
+    background-color: rgb(209, 204, 216);
+    cursor: pointer;
+}
+
+.custom-file-upload:hover {
+  transform: scale(1.05);
+  box-shadow: 2px 3px 4px 3px rgba(23, 10, 78, 0.5);
+  background: rgba(213, 181, 235, 0.795);
+  color: rgba(23, 10, 78, 0.5) ;
+}
+
+.img-style {
+  border-radius: 8px;
+}
+
+img {
+  border: 1px solid black;
+  /* margin-top: 100px;
+  margin-bottom: 100px;
+  margin-right: 100px;
+  margin-left: 3px; */
+  /* margin-bottom: 10%; */
+  background-color: white;
+  align-content: center;
+}
+
+img:hover {
+  transform: scale(1.1);
+  box-shadow: 2px 3px 4px 3px rgba(23, 10, 78, 0.5);
+  background: rgba(213, 181, 235, 0.795);
+}
+
+
+.styling {
+  align-items: center;
+}
+
+h2 {
+  
+  color:rgba(37, 10, 82, 0.808);
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+
+
+}
+
+
+h1 { 
+  size: 0px;
+  display: none;
+ 
+}

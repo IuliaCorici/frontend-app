@@ -1,0 +1,93 @@
+@import './variables.scss';
+
+.container {
+  width: 100%;
+  height: calc(100vh - 100px);
+
+  display: flex;
+  flex-direction: row;
+
+  @mixin center() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @mixin myContainer($color, $path) {
+    // width: 50%;
+    height: 100%;
+    background-color: $color;
+    @include center();
+    background-image: url($path);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .nameContainer {
+    @include myContainer($primary-color, '../media/hero-visualcookies.png');
+    width: 70%;
+    border-color: rgba(47, 23, 78, 0.808);
+    border-style: dashed;
+  }
+  .infoContainer {
+    @include myContainer( white  , '');
+    width: 30%;
+    border-right-width: 10px;
+    border-color: rgba(47, 23, 78, 0.808);
+    border-style: dashed;
+    // display: contents;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+  
+    justify-content: center;
+
+    .text {
+      height: 50px;
+      width: 200px;
+      background-color: $primary-color;
+      // background-image: url('../media/name.jpeg');
+      color: white;
+      @include center();
+      border-radius: 5px;
+  
+      a {
+        margin: 0 20px;
+        text-decoration: none;
+        color: $text;
+        letter-spacing: 1px;
+        font-size: 20px;
+        font-weight: 500;
+      }
+    }
+    .text:hover {
+      transform: scale(1.1);
+      box-shadow: 2px 3px 4px 3px rgba(23, 10, 78, 0.5);
+      background: rgba(213, 181, 235, 0.795);
+    }
+
+  }
+  // .text {
+  //   height: 50px;
+  //   width: 200px;
+  //   background-color: $primary-color;
+  //   // background-image: url('../media/name.jpeg');
+  //   color: white;
+  //   @include center();
+  //   border-radius: 5px;
+
+  //   a {
+  //     margin: 0 20px;
+  //     text-decoration: none;
+  //     color: $text;
+  //     letter-spacing: 1px;
+  //     font-size: 20px;
+  //     font-weight: 500;
+  //   }
+  // }
+  // .text:hover {
+  //   transform: scale(1.1);
+  //   box-shadow: 2px 3px 4px 3px rgba(23, 10, 78, 0.5);
+  //   background: rgba(213, 181, 235, 0.795);
+  // }
+}
