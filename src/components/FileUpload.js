@@ -1,6 +1,7 @@
 import React from 'react';
 import  UploadButtons from './Button_Style.js'
 import "./styles.css"
+// import landmark_icon from "./CONTACT_BUN.png"
 
 class Main extends React.Component {
   constructor(props) {
@@ -18,7 +19,6 @@ class Main extends React.Component {
 
   handleUploadImage(ev) {
     ev.preventDefault();
-
     const data = new FormData();
     data.append('file', this.uploadInput.files[0]);
   
@@ -37,8 +37,7 @@ class Main extends React.Component {
         let name = body_string[4].substring(17, name_size - 1)
 
         console.log(body_string)
-        this.setState({ imageURL: dest, infoLandmark: info,   nameLandmark: "This is " + name});
-       
+        this.setState({ imageURL: dest, infoLandmark: info, nameLandmark: "This is " + name});
       });
     });
   }
@@ -46,61 +45,23 @@ class Main extends React.Component {
   render() {
     return (
       <div>
-      
       <h2> Upload the image down below!</h2>
-    
-      
       <form onSubmit={this.handleUploadImage} id={"MyForm"}>
-       
-         <div>
+         <div className="style-buttons">
           <label class="custom-file-upload">
             <input ref={(ref) => { this.uploadInput = ref; }} type="file" />
-            <i class="fa fa-cloud-upload"></i> Browse
+            Browse
           </label>
-
-        </div>
-    
-        <br />
-        <div> 
           <UploadButtons Submit={this.handleUploadImage}/>
         </div>
         <div>
-        
-
-        <h2>Here is your result</h2>
-        
-        {/* <table className="table" id="results-table">
-            <tr>
-              <th>Image</th>
-              <th>Name of the landmark</th>
-              <th>Information about {this.state.nameLandmark} </th>
-            </tr>
-            <tr>
-                <th>
-                  <label class="img-style">
-                    <img  border-radius="12px" width="400px" height="250px" src= {"/uploads/"+this.state.imageURL} alt="" />
-                  </label>
-              </th>
-                
-              <th>  
-               <label class="styling" >
-                {this.state.nameLandmark}
-               </label>
-             </th>
-             <th>  
-               <label class="styling" >
-                { this.state.infoLandmark}
-               </label>
-             </th>
-              
-            </tr>
-        </table> */}
-         <label class="img-style">
-                    <img  border-radius="12px" width="350px" height="250px" src= {"/uploads/"+this.state.imageURL} alt=""  />
-         </label>
-         <h2 >
-            {this.state.nameLandmark}
-          </h2>
+        <br/> 
+        <br/> 
+        <h2> Here is your result</h2>
+        <div className="img-style">
+          <img  width="350px" height="250px" src= {"/uploads/"+this.state.imageURL} alt="" />
+        </div>
+        <h2> {this.state.nameLandmark} </h2>
         </div>
       </form>
       </div>

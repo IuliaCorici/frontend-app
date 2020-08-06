@@ -7,7 +7,7 @@ input[type="file"] {
 .custom-file-upload {
     padding-left: 100px;
     display: inline-block;
-    font-family:  Georgia;
+    font-family:  sans-serif;
     text-decoration-color: aliceblue;
     width: 150px;
     padding: 10px;
@@ -21,29 +21,29 @@ input[type="file"] {
   transform: scale(1.05);
   box-shadow: 2px 3px 4px 3px rgba(23, 10, 78, 0.5);
   background: rgba(213, 181, 235, 0.795);
-  color: rgba(23, 10, 78, 0.5) ;
+  color: rgba(16, 4, 68, 0.5) ;
+}
+.style-buttons {
+  display: flex;
+  align-items: center;
+  
+  justify-content: space-evenly;
+  flex-direction: row;
 }
 
 .img-style {
-  border-radius: 8px;
-}
-
-img {
-  border: 1px solid black;
-  /* margin-top: 100px;
-  margin-bottom: 100px;
-  margin-right: 100px;
-  margin-left: 3px; */
-  /* margin-bottom: 10%; */
+  justify-content: center;
+  align-self: center;
+  border-color: white;
   background-color: white;
   align-content: center;
 }
-
+/* 
 img:hover {
   transform: scale(1.1);
   box-shadow: 2px 3px 4px 3px rgba(23, 10, 78, 0.5);
-  background: rgba(213, 181, 235, 0.795);
-}
+  background: white;
+} */
 
 
 .styling {
@@ -51,15 +51,15 @@ img:hover {
 }
 
 h2 {
-  
+  display: flex;
+  align-content: center;
+  flex-direction: row;
+  justify-content: space-evenly;
   color:rgba(37, 10, 82, 0.808);
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-
-
+  font-size: 25px;
+  font-weight: 500;
+  
 }
-
 
 h1 { 
   size: 0px;

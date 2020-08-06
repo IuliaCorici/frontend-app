@@ -4,19 +4,17 @@ import { Link } from 'react-router-dom';
 import Main from './FileUpload';
 
 const Home = () => {
+  let info = '';
   return (
     <div className={styles.container}>
       <div className={styles.nameContainer}>
-        {/* <div className={styles.text}>
-          <Link to='/name'>Name of the Landmark</Link>
-        </div> */}
       </div>
       <div className={styles.infoContainer}>
         <div>
-          <Main />
+          <Main Info={info} />
         </div>
         <div className ={styles.text}>
-        <Link to='/info'>Get more info</Link>
+        <Link  to='/info'>Get more info</Link>
         </div>
       </div>
     </div>

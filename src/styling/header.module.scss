@@ -3,14 +3,14 @@
 .container {
   height: 100px;
   width: 100%;
-  background-color: $text;
+  // background-color: $text;
   
-  background-image: url('../media/landmark.jpeg');
+  // background-image: url('../media/landmark.jpeg');
 
   display: flex;
   align-items: center;
   
-  justify-content: center;
+  justify-content: space-evenly;
 
   .link {
     margin: 0 100px;
