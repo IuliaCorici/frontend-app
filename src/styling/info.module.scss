@@ -1,0 +1,81 @@
+@import './variables.scss';
+
+.container {
+  width: 100%;
+  height: calc(100vh - 100px);
+
+  display: flex;
+  flex-direction: row;
+
+  @mixin center() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @mixin myContainer($color, $path) {
+  
+    height: 100%;
+    background-color: $color;
+    @include center();
+    background-image: url($path);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .nameContainer {
+    @include myContainer($primary-color, '../media/hero-visualcookies.png');
+    width: 68%;
+    border-color: rgba(47, 23, 78, 0.808);
+    border-style: groove;
+    border-left-style: hidden;
+    font-weight: 500;
+    
+  }
+  .infoContainer {
+    @include myContainer( white  , '');
+    width: 32%;
+    border-top-width: 10px;
+    border-right-width: 10px;
+    border-left-width: 10px;
+    border-style: groove;
+
+    border-color: rgba(47, 23, 78, 0.808);
+  
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+  
+    justify-content: center;
+
+    .text {
+      // height: 50px;
+      //width: 200px;
+      background-color: $primary-color;
+      // background-image: url('../media/name.jpeg');
+      color: rgba(47, 23, 78, 0.808);
+      @include center();
+      border-radius: 5px;
+      font-size: 20px;
+      font-weight: 500;
+      margin-left: 10px;
+      margin-right: 10px;
+      border-width: 3px;
+      border-style: dotted;
+      border-color: rgba(47, 23, 78, 0.808);
+      padding: 20px;
+  
+      a {
+        margin: 0 20px;
+        text-decoration: none;
+        color: $text;
+        letter-spacing: 1px;
+        font-size: 20px;
+        font-weight: 500;
+      }
+    }
+    
+
+  }
+  
+}

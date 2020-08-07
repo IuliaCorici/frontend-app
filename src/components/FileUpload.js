@@ -1,6 +1,8 @@
 import React from 'react';
 import  UploadButtons from './Button_Style.js'
 import "./styles.css"
+import {updateInfo}  from "../redux/actions/fotoAction"
+import {connect} from "react-redux"
 // import landmark_icon from "./CONTACT_BUN.png"
 
 class Main extends React.Component {
@@ -28,19 +30,34 @@ class Main extends React.Component {
       body: data,
     }).then((response) => {
       response.json().then((body) => {
-        const body_string = JSON.stringify(body).split(",");
-        let size_sub = body_string[0].length
-        let dest = body_string[0].substring(9, size_sub - 1)
-        let info_size = body_string[3].length
-        let info = body_string[3].substring(8, info_size - 1)
-        let name_size = body_string[4].length
-        let name = body_string[4].substring(17, name_size - 1)
 
-        console.log(body_string)
-        this.setState({ imageURL: dest, infoLandmark: info, nameLandmark: "This is " + name});
+        // const parsed_content = JSON.parse(body);
+
+
+        // const body_string = JSON.stringify(body).split(",");
+        // let size_sub = body_string[0].length
+        // let dest = body_string[0].substring(9, size_sub - 1)
+        // let info_size = body_string[3].length
+        // let info = body_string[3].substring(8, info_size - 1)
+        // let name_size = body_string[4].length
+        // let name = body_string[4].substring(17, name_size - 1)
+        const list = JSON.parse(JSON.stringify(body));
+        let my_array = []
+        let i = 0;
+        for(var key in list){
+            my_array[i] = list[key];
+            i++;
+        }
+        let dest = my_array[0];
+        let name = my_array[4];
+        let info = my_array[3];
+        console.log(dest)
+        this.setState({ imageURL: dest, nameLandmark: "This is " + name});
+        this.props.update({info, name});
       });
     });
   }
+
 
   render() {
     return (
@@ -69,4 +86,8 @@ class Main extends React.Component {
   }
 }
 
-export default Main;
+const MapDispatchToProps = (dispatch) => ({
+  update: (data) => (dispatch(updateInfo(data)))
+})
+
+export default connect(null, MapDispatchToProps)(Main);

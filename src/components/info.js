@@ -1,19 +1,27 @@
 import React from 'react';
-import styles from '../styling/home.module.scss';
+import styles from '../styling/info.module.scss';
+import {connect} from "react-redux"
 
 
-export default function Info(props) {
 
+function Info(props) {
+    const {name, info} = props;
    return (
    <div className={styles.container}>
       <div className={styles.nameContainer}>
       </div>
       <div className={styles.infoContainer}>
-        
-         <div className ={styles.text}>
-            {props.query}
+         <div className={styles.text}>
+            {info}
         </div>
       </div>
     </div>
    );
 }
+
+
+const MapState = ({fotoInfo}) => ({
+  name: fotoInfo.name,
+  info: fotoInfo.info
+})
+export default connect(MapState, null)(Info);
