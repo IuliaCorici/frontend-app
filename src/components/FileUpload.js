@@ -10,10 +10,9 @@ class Main extends React.Component {
     super(props);
 
     this.state = {
-      imageURL: '',
       nameLandmark : '',
       infoLandmark: '',
-      yearLandmark: ''
+      encodeLandmark: ''
     };
 
     this.handleUploadImage = this.handleUploadImage.bind(this);
@@ -31,16 +30,6 @@ class Main extends React.Component {
     }).then((response) => {
       response.json().then((body) => {
 
-        // const parsed_content = JSON.parse(body);
-
-
-        // const body_string = JSON.stringify(body).split(",");
-        // let size_sub = body_string[0].length
-        // let dest = body_string[0].substring(9, size_sub - 1)
-        // let info_size = body_string[3].length
-        // let info = body_string[3].substring(8, info_size - 1)
-        // let name_size = body_string[4].length
-        // let name = body_string[4].substring(17, name_size - 1)
         const list = JSON.parse(JSON.stringify(body));
         let my_array = []
         let i = 0;
@@ -48,11 +37,11 @@ class Main extends React.Component {
             my_array[i] = list[key];
             i++;
         }
-        let dest = my_array[0];
-        let name = my_array[4];
-        let info = my_array[3];
-        console.log(dest)
-        this.setState({ imageURL: dest, nameLandmark: "This is " + name});
+        let name = my_array[3];
+        let info = my_array[2];
+        let img_decode = my_array[5]
+        console.log(img_decode)
+        this.setState({ nameLandmark: "This is " + name, encodeLandmark: img_decode});
         this.props.update({info, name});
       });
     });
@@ -76,7 +65,7 @@ class Main extends React.Component {
         <br/> 
         <h2> Here is your result</h2>
         <div className="img-style">
-          <img  width="350px" height="250px" src= {"/uploads/"+this.state.imageURL} alt="" />
+          <img  width="350px" height="250px" src={"data:image/jpeg;base64,"+ this.state.encodeLandmark}  alt =""/>
         </div>
         <h2> {this.state.nameLandmark} </h2>
         </div>

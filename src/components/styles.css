@@ -32,11 +32,13 @@ input[type="file"] {
 }
 
 .img-style {
+  display: flex;
   justify-content: center;
-  align-self: center;
+  align-items: center;
+  /* align-self: center; */
   border-color: white;
   background-color: white;
-  align-content: center;
+  
 }
 /* 
 img:hover {
